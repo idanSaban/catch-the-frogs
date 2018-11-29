@@ -3,7 +3,7 @@ const Game = () => {
     //frogs array that contain the frogs
     const _frogs = [];
     //level conter
-    let levelsCount = 0;
+    let levelsCount = 4;
     //levelTimeOut=3
     let levelTimeOut = 2;
 
@@ -25,6 +25,7 @@ const Game = () => {
             x:Math.floor(Math.random()*600),
             y:Math.floor(Math.random()*600)
         }
+        console.log(position)
         return position
     }
     //create new frog
@@ -37,6 +38,7 @@ const Game = () => {
             position:randomPosition(),
             color: randomColor()
         }
+        console.log(frog)
         return frog;
     }
     //newLevel function- push new frog , all counters++
@@ -99,20 +101,18 @@ const Game = () => {
     }
 
 }
-const frogs = Game();
 
-frogs.newLevel()
-console.log(frogs.getFrogs())
-frogs.removeFrog(1)
-console.log(frogs.getFrogs())
-frogs.newLevel()
-console.log(frogs.getFrogs())
-frogs.removeFrog(1)
-frogs.removeFrog(2)
-console.log(frogs.getFrogs())
-frogs.newLevel()
-console.log(frogs.getFrogs())
-frogs.removeFrog(1)
-frogs.removeFrog(2)
-frogs.removeFrog(3)
-console.log(frogs.getFrogs())
+// console.log(frogs.getFrogs())
+// frogs.removeFrog(1)
+// console.log(frogs.getFrogs())
+// frogs.newLevel()
+// console.log(frogs.getFrogs())
+// frogs.removeFrog(1)
+// frogs.removeFrog(2)
+// console.log(frogs.getFrogs())
+// frogs.newLevel()
+// console.log(frogs.getFrogs())
+// frogs.removeFrog(1)
+// frogs.removeFrog(2)
+// frogs.removeFrog(3)
+// console.log(frogs.getFrogs())
