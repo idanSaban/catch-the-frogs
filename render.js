@@ -1,12 +1,27 @@
 const Renderer = () => {
     const renderFrogs = (frogs) => {
-        for (frog of frogs) {
-            let output = `<i class="fas fa-frog" style="position:relative;left:${frog.position.x}px;top:${frog.position.y}px;color:${frog.color};font-size:${frog.size}px" ></i>`
-            console.log(output)
-            $("#game").append(output)
+        $("#game").empty();
+        if (frogs) {
+            for (frog of frogs) {
+                let output = `<i data-id="${frog.id}" class="fas fa-frog" style="position:absolute;left:${frog.position.x}%;top:${frog.position.y}%;color:${frog.color};font-size:${frog.size}px" ></i>`;
+                $("#game").append(output);
+            }
         }
+
+        $("#level").text(`LEVEL ${game.getLevel()}`);
+        $("#frogsLeft").text(`${game.getFrogsLeft()} FROGS LEFT!`);
+        $("#start").text("start");
     }
+
+    const gameOver = () => {
+        $("#game").empty();
+        $("#header").empty();
+        $("#start").text("try again!");
+    }
+
     return {
-        renderFrogs: renderFrogs
+        renderFrogs,
+        gameOver
     }
 }
+

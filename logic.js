@@ -3,9 +3,10 @@ const Game = () => {
     //frogs array that contain the frogs
     const _frogs = [];
     //level conter
-    let levelsCount = 4;
+    let levelsCount = 0;
     //levelTimeOut=3
     let levelTimeOut = 2;
+    const getTimeOut = () => levelTimeOut;
 
 
     let frogsIDCounter = 0
@@ -16,16 +17,16 @@ const Game = () => {
         rgb += `${Math.floor(Math.random() * 255)})`;
         return rgb
     }
-    const randomSize=()=>{
-        const size=Math.floor(20+Math.random()*20);
+    const randomSize = () => {
+        const size = Math.floor(40 + Math.random() * 40);
         return size
     }
-    const randomPosition = ()=>{
-        const position={
-            x:Math.floor(Math.random()*600),
-            y:Math.floor(Math.random()*600)
+    const randomPosition = () => {
+        const position = {
+            x: Math.floor(5 + Math.random() * 80),
+            y: Math.floor(10 + Math.random() * 70)
         }
-        console.log(position)
+        console.log(position);
         return position
     }
     //create new frog
@@ -35,15 +36,15 @@ const Game = () => {
         const frog = {
             id: frogsIDCounter,
             size: randomSize(),
-            position:randomPosition(),
+            position: randomPosition(),
             color: randomColor()
         }
-        console.log(frog)
+        console.log(frog);
         return frog;
     }
     //newLevel function- push new frog , all counters++
     const newLevel = () => {
-        frogsIDCounter=0;
+        frogsIDCounter = 0;
         levelTimeOut++;
         levelsCount++;
         console.log(`wellcome to level ${levelsCount}`);
@@ -55,7 +56,6 @@ const Game = () => {
 
     //frog clicked
     const removeFrog = (id) => {
-        console.log(`remove frog ${id}`)
         for (i in _frogs) {
             if (_frogs[i].id === id) {
                 return _frogs.splice(i, 1)
@@ -63,28 +63,11 @@ const Game = () => {
         }
     }
 
-    // //startGame -
-    // const startGame=()=>{
-    //     newLevel()
-    //     let frogsOnField = levelsCount;
-    //     setTimeout((levelTimeOut*1000),function(){
-    //         if(frogsOnField>0){
-    //             alert("game over")
-    //             return
-    //         }else{
-    //             startGame();
-    //         }
-    //     })
-    // }
-
-    // cosnt randomPosition = () =>
-
-    // cosnt randomSize = () =>
-
-    // const randomColor = () =>
-
+    const getLevel = () => levelsCount;
+    const getFrogsLeft = () => _frogs.length
 
     const reset = () => {
+        console.log("reset game")
         levelsCount = 0;
         levelTimeOut = 2;
         _frogs.splice(0, _frogs.length);
@@ -95,6 +78,9 @@ const Game = () => {
     const getFrogs = () => _frogs;
     return {
         getFrogs: getFrogs,
+        getFrogsLeft: getFrogsLeft,
+        getLevel: getLevel,
+        getTimeOut: getTimeOut,
         removeFrog: removeFrog,
         newLevel: newLevel,
         reset: reset
