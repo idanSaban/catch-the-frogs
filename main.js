@@ -6,8 +6,9 @@ $("body").on("click", ".fa-frog", function () {
     game.removeFrog(frogID);
     render.renderFrogs(game.getFrogs());
 })
-
+let gameOn = false;
 const start = function () {
+    gameOn = true;
     game.newLevel();
     let timeout = game.getTimeOut();
     let seconds = timeout;
@@ -18,11 +19,9 @@ const start = function () {
         $("#header").text(`${seconds} Seconds left`);
         if (game.getFrogsLeft() == 0) {
             clearInterval(Countdown);
-            alert("GET READY FOR NEXT LEVEL!");
             return start();
         } else if (seconds <= 0) {
             clearInterval(Countdown);
-
             return gameOver();
         }
     }
@@ -31,10 +30,15 @@ const start = function () {
 
     const gameOver = () => {
         alert("Game Over");
+        gameOn = false;
         game.reset();
         render.renderFrogs();
         render.gameOver();
     }
 }
 
-$("#start").on("click", start);
+$("#start").on("click", function () {
+    if (!gameOn) {
+        start()
+    }
+});

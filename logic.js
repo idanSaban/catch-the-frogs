@@ -50,6 +50,7 @@ const Game = () => {
         console.log(`wellcome to level ${levelsCount}`);
         for (let i = 0; i < levelsCount; i++) {
             _frogs.push(newFrog());
+            _frogs.push(newFrog());
         }
 
     }
