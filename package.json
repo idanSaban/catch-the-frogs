@@ -1,0 +1,23 @@
+{
+  "name": "catch-a-frog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idanSaban/catch-the-frogs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idanSaban/catch-the-frogs/issues"
+  },
+  "homepage": "https://github.com/idanSaban/catch-the-frogs#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
