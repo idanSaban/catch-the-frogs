@@ -12,7 +12,7 @@ const Renderer = () => {
 
         $("#level").text(`LEVEL ${game.getLevel()}`);
         $("#frogsLeft").text(`${game.getFrogsLeft()} FROGS LEFT!`);
-        $("#start").text("START");
+        $("#start").text("");
     }
 
     const gameOver = () => {

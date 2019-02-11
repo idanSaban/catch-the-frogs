@@ -42,10 +42,14 @@ body {
     font-weight: 400;
 }
 
-.purple {
+.blue {
     display: grid;
     justify-content: center;
     align-content: center;
     background-color: rgb(71, 113, 133);
     font-weight: 400;
+}
+
+.blue:active {
+    background-color: rgb(45, 79, 95);
 }
